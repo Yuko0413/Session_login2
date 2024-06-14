@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CdpWebRailsSessionLoginTask</title>
+    <title><%= content_for?(:title) ? yield(:title) : "CdpWebRailsSessionLoginTask" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,10 +14,6 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-  <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
     <header>
       <nav>
         <ul>
@@ -33,6 +29,7 @@
         </ul>
       </nav>
     </header>
+
     <%= yield %>
   </body>
 </html>

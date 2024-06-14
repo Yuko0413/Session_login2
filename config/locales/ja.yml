@@ -7,10 +7,18 @@ ja:
       task:
         title: タイトル
         content: 内容
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
   errors:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください
+      taken: はすでに使用されています
+      confirmation: とパスワードの入力が一致しません
+      too_short: は%{count}文字以上で入力してください
   helpers:
     submit:
       create: 登録する
@@ -37,19 +45,3 @@ ja:
       updated: タスクを更新しました
     destroy:
       destroyed: タスクを削除しました
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            name:
-              blank: "名前を入力してください"
-            email:
-              blank: "メールアドレスを入力してください"
-              taken: "メールアドレスはすでに使用されています"
-            password:
-              blank: "パスワードを入力してください"
-              too_short: "パスワードは6文字以上で入力してください"
-            password_confirmation:
-              confirmation: "パスワード（確認）とパスワードの入力が一致しません"
-              blank: "パスワード（確認）を入力してください"

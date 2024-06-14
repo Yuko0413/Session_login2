@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  before_action :correct_user, only: [:show]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def new
     @user = User.new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       flash[:success] = 'アカウントを登録しました'
-      redirect_to user_path(@user.id)
+      redirect_to tasks_path
     else
       render :new
     end
@@ -38,9 +38,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    log_out if logged_in?
     flash[:success] = 'アカウントを削除しました'
-    redirect_to root_path
+    redirect_to new_session_path
   end
+  
 
   private
 
