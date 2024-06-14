@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       task: タスク
+      user: ユーザー
     attributes:
       task:
         title: タイトル
@@ -36,3 +37,19 @@ ja:
       updated: タスクを更新しました
     destroy:
       destroyed: タスクを削除しました
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+              taken: "メールアドレスはすでに使用されています"
+            password:
+              blank: "パスワードを入力してください"
+              too_short: "パスワードは6文字以上で入力してください"
+            password_confirmation:
+              confirmation: "パスワード（確認）とパスワードの入力が一致しません"
+              blank: "パスワード（確認）を入力してください"
