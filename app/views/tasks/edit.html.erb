@@ -1,19 +1,6 @@
 <% content_for :title, "タスク編集ページ" %>
 <h1>タスク編集ページ</h1>
 
-<%= form_with(model: @task, local: true) do |f| %>
-  <div class="field">
-    <%= f.label :title, 'タイトル' %>
-    <%= f.text_field :title %>
-  </div>
+<%= render 'form', task: @task %>
 
-  <div class="field">
-    <%= f.label :content, '内容' %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit '更新する' %>
-    <%= link_to '戻る', task_path(@task) %>
-  </div>
-<% end %>
+<%= link_to t('common.back'), tasks_path %>
